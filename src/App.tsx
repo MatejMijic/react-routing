@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Header } from "./components/Header";
+
+import { BrowserRouter } from "react-router-dom";
+import { Routing } from "./components/Routing";
+
+/**
+ * * [ROUTER PROPS]
+ * * basename: string
+ * * getUserConfirmation: func -> Function to use to confirm navigation (default: windows.confirm)
+ * * forceRefresh: bool -> If true the router will use full page refreshes on page navigation
+ * * keyLength: number -> The length of location.key. (default: 6)
+ */
+
+/* <BrowserRouter basename="/calendar">
+    <Link to="/today"/> // renders <a href="/calendar/today">
+    <Link to="/tomorrow"/> // renders <a href="/calendar/tomorrow">
+   </BrowserRouter> */
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routing />
+    </BrowserRouter>
   );
 }
 
